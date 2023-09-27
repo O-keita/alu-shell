@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+#loop
+for item in *
+
+do
+
+   
+
+    if [[ $item == .* ]]
+
+    then
+
+        continue 
+
+    fi
+
+ 
+
+ 
+
+    name_part=$(echo "$item" | cut -d '-' -f 2-)
+
+ 
+
+    echo "$name_part"
+
+done
+
+
