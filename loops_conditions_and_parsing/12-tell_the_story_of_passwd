@@ -1,13 +1,23 @@
 #!/usr/bin/env bash
-#loop
-while IFS=: read -r f1 f2 f3 f4 f5 f6 f7;                                                                                              
 
-do                                                                                                                                     
+# Set IFS to ':' to separate fields in /etc/passwd
+IFS=":"
 
-        echo "The user $f1 is part of the $f4 gang, lives in $f6 and rides $f7. $f3's place is protected by the passcode $f2, more inf\
+# Read and process each line in /etc/passwd
+while read -r username x userid groupid userdesc homedir shell
+do
+    echo "The user $username is part of the $groupid gang,"
+    echo "lives in $homedir and rides $shell."
+    echo -n "USER ID's place is protected by the passcode "
 
-o about the user here: $f5"                                                                                                            
+    # Extract the encrypted password from /etc/passwd
+    passwd_line=$(grep -E "^$username:" /etc/passwd)
+    password=$(echo "$passwd_line" | cut -d':' -f2)
 
-                                                                                                                                       
+    # Print only the encrypted password
+    echo "$password,"
 
-done</etc/passwd
+    echo "more info about the user here: $userdesc"
+    echo
+done < /etc/passwd
+
