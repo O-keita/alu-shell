@@ -2,16 +2,16 @@
 #loops
 counter=0
 
- 
-
 until [ $counter -eq 10 ]
 
 do
 
-    echo "Best School."
+    echo "Best School"
 
  
 
     ((counter++))
 
 done
+
+ 
