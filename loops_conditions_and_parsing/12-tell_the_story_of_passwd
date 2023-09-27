@@ -1,20 +1,19 @@
 #!/usr/bin/env bash
-
 # Set IFS to ':' to separate fields in /etc/passwd
 IFS=":"
 
-# Read and process each line in /etc/passwd
+
 while read -r username x userid groupid userdesc homedir shell
 do
     echo "The user $username is part of the $groupid gang,"
     echo "lives in $homedir and rides $shell."
     echo -n "USER ID's place is protected by the passcode "
 
-    # Extract the encrypted password from /etc/passwd
+   
     passwd_line=$(grep -E "^$username:" /etc/passwd)
     password=$(echo "$passwd_line" | cut -d':' -f2)
 
-    # Print only the encrypted password
+    
     echo "$password,"
 
     echo "more info about the user here: $userdesc"
