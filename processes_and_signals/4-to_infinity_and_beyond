@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Infinity
+while true;do
+	echo "An infinity"
+	sleep 2
+done
