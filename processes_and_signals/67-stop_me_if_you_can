@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#try using trap
+pkill -f "./7-highlander"
