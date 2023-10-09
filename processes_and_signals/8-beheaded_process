@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#kill forcefully
+pkill -SIGKILL -f "./7-highlander"
